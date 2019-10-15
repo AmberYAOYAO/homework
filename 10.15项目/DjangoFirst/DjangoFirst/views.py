@@ -96,10 +96,24 @@ def dog(request):
 def shop(request):
     shop_list=[
         {"style":1,"name":"北京朝阳区店","url":"/static/img/shop-pic1.jpg","class":"shop-wrap shop-right"},
-        {"style": 1, "name": "上海徐汇区区店", "url": "/static/img/shop-pic2.jpg", "class": "shop-wrap shop-right"},
+        {"style": 1, "name": "上海徐汇区店", "url": "/static/img/shop-pic2.jpg", "class": "shop-wrap shop-right"},
         {"style": 2, "name": "厦门集美区店", "url": "/static/img/shop-pic3.jpg", "class": "shop-wrap"},
         {"style": 1, "name": "广州番禹区店", "url": "/static/img/shop-pic4.jpg", "class": "shop-wrap shop-right"},
         {"style": 1, "name": "深圳福田区店", "url": "/static/img/shop-pic5.jpg", "class": "shop-wrap shop-right"},
         {"style": 2, "name": "其他区店", "url": "/static/img/shop-pic6.jpg", "class": "shop-wrap"}
     ]
     return render_to_response("shop.html",locals())
+def beef(request):
+    return render_to_response("beef-index.html",locals())
+def band(request):
+    return render_to_response("pinpai.html", locals())
+def food(request):
+    return render_to_response("meishi.html", locals())
+def news(request):
+    return render_to_response("news.html", locals())
+def about(request):
+    return render_to_response("about-us.html", locals())
+def meishicon(request):
+    return render_to_response("meishi-con.html",locals())
+def newscon(request):
+    return render_to_response("news-con.html",locals())

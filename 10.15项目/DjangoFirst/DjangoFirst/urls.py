@@ -29,5 +29,12 @@ urlpatterns = [
     path('index1/', index1),
     path('in_page/', in_page),
     path('dog/',dog),
-    path('shop/',shop)
+    path('shop/',shop),
+    path('beef/',beef),
+    path('band/',band),
+    path('food/',food),
+    path('news/',news),
+    path('about/',about),
+    path('meishicon/',meishicon),
+    path('newscon/',newscon),
 ]
