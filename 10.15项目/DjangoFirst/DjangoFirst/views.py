@@ -117,3 +117,5 @@ def meishicon(request):
     return render_to_response("meishi-con.html",locals())
 def newscon(request):
     return render_to_response("news-con.html",locals())
+def shopcon(request):
+    return render_to_response("shop-con.html",locals())

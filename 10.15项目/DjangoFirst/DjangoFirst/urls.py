@@ -37,4 +37,5 @@ urlpatterns = [
     path('about/',about),
     path('meishicon/',meishicon),
     path('newscon/',newscon),
+    path('shopcon/',shopcon)
 ]
