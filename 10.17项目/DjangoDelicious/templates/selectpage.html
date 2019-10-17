@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>查询一条数据</p>
+    <p>{{ news.title }}_{{ news.time }}</p>
+    <hr style="border:solid 2px orange">
+    <p>查询多条数据</p>
+    {% for news in news_list %}
+        <p>{{ news.id }}_{{ news.title }}_{{ news.time }}</p>
+
+{#        <li>{{ news.id }}_{{ news.title }}_{{ news.type_id.label }}_{{ news.type_id.description }}</li>#}
+
+    {% endfor %}
+    {% for editor in editor_list %}
+        <p>{{ editor.name}}_{{ editor.email }}</p>
+    {% endfor %}
+    <p>聚类查询</p>
+    <p>{{ news1 }}</p>
+    #Q查询
+    <p>{{ news }}</p>
+    <hr style="border:solid 2px orange">
+</body>
+</html>

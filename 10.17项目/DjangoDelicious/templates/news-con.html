@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+	    {% block content %}
+		<ul class="breadnav clearfix">
+			<li class="bnav-item"><a href="/beef/">首页</a></li>
+			<li class="bnav-item">&lt;</li>
+			<li class="bnav-item"><a href="news.html">新闻资讯</a></li>
+			<li class="bnav-item">&lt;</li>
+			<li class="bnav-item"><a href="javascript:;">牛排怎么分类...</a></li>
+		</ul>
+		
+		<div class="news-conwrap">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+			<p>{{ news.content }}</p>
+			
+			<a href="news.html" class="shop-icon">返回列表页</a>
+		</div>
+        {% endblock %}
+
