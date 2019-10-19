@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <!--
+    <p>request</p>
+    <p>{{ request }}</p>
+    <hr>
+    <P>request</P>
+    <p>{{ methods }}</p>
+    <hr>
+    <p>request META</p>
+    {% for key,value in request.META.items %}
+        <p>{{ key }}&nbsp;&nbsp;&nbsp;&nbsp;{{ value }}</p>
+    {% endfor %}
+    <hr>
+   <form>
+       <p>
+           <label>姓名:</label>
+       </p>
+       <p>
+           <label>性别:</label>
+           <input type="radio" name="g" value="nan">
+           <span>男</span>
+           <input type="radio" name="g" value="nv">
+           <span>女</span>
+       </p>
+       <p>
+           <label>学科:</label>
+           <select name="p">
+               <option value="python">Python</option>
+               <option value="php">Php</option>
+               <option value="java">Java</option>
+               <option value="c">C</option>
+           </select>
+       </p>
+       <p>
+           <input type="submit" value="提交">
+       </p>
+   </form>
+    <form>
+       <p>
+           <label>美食名称:</label>
+           <input type="text" name="d">
+       </p>
+       <P>
+           <input type="submit" value="提交">
+       </P>
+   </form>
+    {% for food in foods_list %}
+        <p>{{ food.name }}</p>
+    {% endfor %}
+    -->
+    <!--
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            <label><p>
+           <label>姓名:</label>
+       </p>
+       <p>
+           <label>性别:</label>
+           <input type="radio" name="g" value="nan">
+           <span>男</span>
+           <input type="radio" name="g" value="nv">
+           <span>女</span>
+       </p>
+       <p>
+           <label>学科:</label>
+           <select name="p">
+               <option value="python">Python</option>
+               <option value="php">Php</option>
+               <option value="java">Java</option>
+               <option value="c">C</option>
+           </select>
+       </p>
+       <p>
+           <input type="submit" value="提交">
+       </p></label>
+        </p>
+    </form>
+    -->
+ <!--
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>
+            <label>美食名称</label>
+            <input type="text" name="name">
+        </p>
+        <p>
+            <label>美食价格</label>
+            <input type="text" name="price">
+        </p>
+        <p>
+            <label>美食类型</label>
+            <select  name="type_id">
+                {% for t in food_type_list %}
+                <option value="{{ t.id }}">{{ t.label }}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <p>
+            <label>美食描述</label>
+            <textarea name="description"></textarea>
+        </p>
+        <p>
+            <label>美食图片</label>
+            <input type="file" name="picture">
+        </p>
+        <p>
+            <input type="submit" value="提交">
+        </p>
+    </form>
+    -->
+    <p>
+        <label>美食名称:</label>
+        <input type="text" name="d" id="name">
+    </p>
+    <div id="response">
+
+    </div>
+    <script src="/static/js/jquery-1.11.0.js"></script>
+    <script>
+        $("#name").blur(function () {
+            var value = $("#name").val(); //获取input内容
+            var url = "/find_food/?food_name="+value;
+            console.log(url);
+            $.ajax(
+                {
+                    url:url, //请求的地址，对应form表单的action
+                    type:"get", // 请求的方法 对应form表单的method
+                    data:"",//请求表单的数据 对应表单的数据
+                    success: function (data) {
+                        var response_data = data["food_data"];
+                        for(var i in response_data){
+                            var food_name = response_data[i]["name"];
+                            var html = "<p>"+food_name+"</p>";
+                            $("#response").append(html);
+                            console.log(html)
+                        }
+
+                    },//如果请求成功，调用后面的函数，把后端返回的数据给data
+                    error:function(error){
+                        console.log(error)
+                    }//如果请求失败，调用后面的函数，把后端返回的数据传给error
+                }
+            )//发起ajax
+        })
+    </script>
+</body>
+</html>
