@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery-1.11.0.js"></script>
+</head>
+<body>
+    <button id="click">post点击这里</button>
+    <div id="response">
+
+    </div>
+
+    <script>
+        $("#click").click(
+            function(){
+                var Data = {
+                    "name":"Tom",
+                    "csrfmiddlewaretoken":"{{ csrf_token }}"
+                };
+                $.ajax({
+                    url:"/apd/",
+                    type:"post",
+                    data:Data,
+                    success:function (data) {
+                        $("#response").text(data["result"])
+                    },
+                    error:function (error) {
+                        console.log(error)
+                    }
+                })
+            }
+        )
+    </script>
+</body>
+</html>
