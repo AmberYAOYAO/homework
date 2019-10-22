@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block tittle %}
+    用户注册
+{% endblock %}
+
+{% block content %}
+    <form method="post" style="border:2px solid deeppink">
+        {% csrf_token %}
+        <p>
+            <label>用户名:</label>
+            <input type="text" name="username" style="border:2px solid deeppink">
+        </p>
+        <p>
+            <label>密码:</label>
+            <input type="password" name="password" style="border:2px solid deeppink">
+        </p>
+        <p>
+            <input type="submit" value="提交" style="border:2px solid deeppink">
+        </p>
+    </form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+    {% block title %}
+        美食展示
+    {% endblock %}
+{% block content %}
+		<ul class="breadnav clearfix">
+			<li class="bnav-item"><a href="/beef/">首页</a></li>
+			<li class="bnav-item">&lt;</li>
+			<li class="bnav-item"><a href="/food/">美食系列</a></li>
+			<li class="bnav-item">&lt;</li>
+			<li class="bnav-item"><a href="javascript:;">菲力黑椒牛排</a></li>
+		</ul>
+		<div class="mei-wrap">
+			<p class="mei-tit">菲力黑椒牛排</p>
+			<div class="mei-pic">
+				<img src="/static/img/ms-pic3.jpg" alt=""/>
+			</div>
+			<div class="mei-txt">
+				<p>菲力牛排，就是用一定厚度的牛里脊肉做出的牛排。菲力指的是牛里脊肉（beef tenderloin）。在澳洲，这块肉被称为“眼菲力”，在法国和英国被称为filet和fillet，中文音译菲力。</p>
+				<p>很多人认为牛排最早是西方人的美食，在欧洲中世纪的时候就开始出现了，牛排只有贵族才可以吃到的美食，而猪肉和羊肉只有平常百姓才可以吃到的，牛肉是贵族的象征，想要吃到牛排除非得到国王的赏识或者立下过过劳的战士才有机会吃到的。</p>
+				<p>尊贵的牛肉被他们搭配上了当时也是享有尊贵身份的胡椒及香辛料一起烹调，并在特殊场合中供应，以彰显主人的尊贵身份。到了18世纪，英国已经成了著名的牛肉食用大国。</p>
+			</div>
+			<a href="/food/" class="meishi-icon">返回列表页</a>
+		</div>
+{% endblock %}

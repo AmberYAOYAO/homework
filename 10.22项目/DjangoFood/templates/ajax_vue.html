@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery-1.11.0.js"></script>
+    <script src="/static/js/vue.min.js"></script>
+    <script src="/static/js/vue-resource.js"></script>
+</head>
+<body>
+{% verbatim myblock %}
+    <div id="content">
+        {{ message }}
+        <a v-on:click="do_something()">hh</a>
+        <ul>
+            <li v-for="for food in food_list">
+                {{ food.id }}&&&{{ food.name }}
+            </li>
+        </ul>
+    </div>
+{% endverbatim myblock%}
+<script>
+    Vue.use(VueResource);
+    var vue = new Vue(
+        {
+            el:"#content",
+            data:{
+                message:"hello world!",
+                food_list:[]
+            },
+            created:function(){
+                this.$http.get("/API/Food/").then(
+                    function (data) {
+                        this.food_list=data["data"]
+
+                    },
+                    function (error) {
+                        console.log(error)
+                    }
+                );//vue封装过的ajax
+            },//初始化执行
+            methods:{
+                do_something:function (){
+                  alert("hhhh")
+                }
+            }
+    })
+</script>
+</body>
+</html>
