@@ -15,7 +15,7 @@ def index(request):
     #     goods_list = t.goods_set.all()[:4]
     #上述内容进行整理
     # result = [{t.name:t.goods_set.all(),"pic":t.picture} for t in type_list]
-    message = "fruit"
+    message = "favourite"
     return render(request,"buyer/index.html",locals())
 
 def login_valid(fun):

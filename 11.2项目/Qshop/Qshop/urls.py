@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,re_path,include
-from Buyer.views import index
+# from Buyer.views import index
 urlpatterns = [
-    re_path(r"^$",index),
+    # re_path(r"^$",index),
     path('admin/', admin.site.urls),
     path('Shop/',include("Shop.urls")),
     path('Buyer/',include("Buyer.urls")),
