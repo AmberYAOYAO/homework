@@ -1,0 +1,9 @@
+[2019-11-07 15:12:31]:name 'a' is not defined
+[2019-11-07 20:07:41]:list index out of range
+[2019-11-08 11:18:57]:["'Nov. 1, 2019, 11 a.m.' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] format."]
+[2019-11-08 11:19:42]:NOT NULL constraint failed: Shop_goods.goods_type_id
+[2019-11-09 16:02:29]:'QuerySet' object has no attribute 'name'
+[2019-11-09 16:02:38]:'QuerySet' object has no attribute 'name'
+[2019-11-09 16:13:52]:Empty variable tag on line 35
+[2019-11-09 16:19:44]:Empty variable tag on line 35
+[2019-11-09 17:00:33]:int() argument must be a string, a bytes-like object or a number, not 'NoneType'

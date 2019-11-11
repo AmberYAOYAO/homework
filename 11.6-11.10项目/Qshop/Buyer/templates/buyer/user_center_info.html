@@ -1,0 +1,72 @@
+{% extends "buyer/base.html"%}
+{% block title %}
+   个人信息
+{% endblock %}
+
+{% block style %}
+    <script type="text/javascript" src="/static/buyer/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/static/buyer/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/static/buyer/js/slide.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="main_con clearfix">
+		<div class="left_menu_con clearfix">
+			<h3>用户中心</h3>
+			<ul>
+				<li><a href="/Buyer/user_info/" class="active">· 个人信息</a></li>
+				<li><a href="/Buyer/user_order/">· 全部订单</a></li>
+				<li><a href="/Buyer/user_site/">· 收货地址</a></li>
+			</ul>
+		</div>
+		<div class="right_content clearfix">
+				<div class="info_con clearfix">
+				<h3 class="common_title2">基本信息</h3>
+						<ul class="user_info_list">
+							<li><span>用户名：</span>{{user.username}}</li>
+							<li><span>联系方式：</span>{{user.phone}}</li>
+							<li><span>联系地址：</span>{{user.address}}</li>
+						</ul>
+				</div>
+
+				<h3 class="common_title2">最近浏览</h3>
+				<div class="has_view_list">
+				    <ul class="goods_type_list clearfix">
+                        {% for goods in goods_list %}
+                        <li>
+                            <a href="/Buyer/goods/{{ goods.goods_id }}"><img src="/static/{{goods.goods_picture}}"></a>
+                            <h4><a href="/Buyer/goods/{{ goods.goods_id }}">{{goods.goods_name}}</a></h4>
+                            <div class="operate">
+                                <span class="prize">￥{{goods.goods_price}}</span>
+                                <span class="unit">{{goods.goods_price}}/500g</span>
+                                <a id="{{ goods.goods_id }}" class="add_goods" title="加入购物车" onclick="add_car(this.id)"></a>
+                            </div>
+                        </li>
+                        {% endfor %}
+			        </ul>
+		        </div>
+		</div>
+</div>
+{% endblock %}
+{% block script %}
+    <script>
+        function add_car(obj) {
+            var post_data = {"goods_id":obj,"csrfmiddlewaretoken":"{{ csrf_token }}"};
+            console.log(post_data);
+            $.ajax(
+                {
+                    url:"/Buyer/add_car/",
+                    type:"post",
+                    data:post_data,
+                    success:function(data){
+                        alert(data["data"])
+                    },
+                    error:function (error) {
+                        console.log(error)
+
+                    }
+                }
+            )
+        }
+    </script>
+{% endblock %}
