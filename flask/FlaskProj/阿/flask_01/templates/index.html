@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+    this is our index
+    <hr>
+    {{ d.upper() }}
+    <hr>
+    {{ d.replace("a","A") }}
+    <hr>
+    {{ d+d }}
+    <hr>
+    {{ a+a }}
+    <hr>
+    <ul>
+    {% for i in e %}
+        <li>{{ i**2 }}</li>
+    {% endfor %}
+    </ul>
+    <hr>
+    <ul>
+    {% for i in e %}
+        <li>{{ i >= 0 }}</li>
+    {% endfor %}
+    </ul>
+    <hr>
+    <ul>
+    {% if a == 2  %}
+        <li>hhh</li>
+    {% endif %}
+    </ul>
+    <hr style=" border: orangered 2px;" >
+    <a href="{{site|safe}}">click</a>
+</body>
+
+</html>
